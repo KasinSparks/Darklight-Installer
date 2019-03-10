@@ -1,0 +1,1 @@
+-Dfml.skipFirstTextureLoad=false -Xmx8G -XX:+UseConcMarkSweepGC -XX:+CMSIncrementalMode -XX:-UseAdaptiveSizePolicy -Xmn128M
