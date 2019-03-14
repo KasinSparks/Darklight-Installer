@@ -6,6 +6,9 @@
 @echo off
 color 2
 
+set fileLoc=%CD%\jars
+set subDir=jars
+
 echo --------------------------------------------------------------------------------
 echo                                     WARNING!
 echo                 Your mods and config folder will be OVERWRITTEN!                          
@@ -34,24 +37,24 @@ echo ---------------------------------------------------------------------------
 echo                     DarkLight Matrix Executable Initialized.
 echo --------------------------------------------------------------------------------
 
-if exist C:\\Users\%username%\AppData\Roaming\.minecraft (
+if exist "c:\Users\"%username%"\AppData\Roaming\.minecraft" (
 	echo What is real? 
 	echo How do you define 'real'? 
 	echo If you're talking about what you can feel...
 	echo what you can smell...
 	echo what you can taste and see...
 	echo then 'real' is simply electrical signals interpreted by your brain. -Morpheus
-	if exist C:\\Users\%username%\AppData\Roaming\.minecraft\config (
-		rmdir /s /q C:\\Users\%username%\AppData\Roaming\.minecraft\config
+	if exist c:\Users\%username%\AppData\Roaming\.minecraft\config (
+		rmdir /s /q c:\Users\%username%\AppData\Roaming\.minecraft\config
 	)
 	
-	if exist C:\\Users\%username%\AppData\Roaming\.minecraft\mods (
-		rmdir /s /q C:\\Users\%username%\AppData\Roaming\.minecraft\mods
+	if exist "c:\Users\"%username%"\AppData\Roaming\.minecraft\mods" (
+		rmdir /s /q "c:\Users\"%username%"\AppData\Roaming\.minecraft\mods"
 	)
 
-	WinRAR.exe x -ibck %CD%\minecraft.rar . C:\\Users\%username%\AppData\Roaming\.minecraft\
-	WinRAR.exe x -ibck %CD%\mods.rar . C:\\Users\%username%\AppData\Roaming\.minecraft\
-	WinRAR.exe x -ibck %CD%\config.rar . C:\\Users\%username%\AppData\Roaming\.minecraft\
+	WinRAR.exe x -ibck "%CD%"\minecraft.rar . "c:\Users\"%username%"\AppData\Roaming\.minecraft\"
+	WinRAR.exe x -ibck "%CD%"\mods.rar . "c:\Users\"%username%"\AppData\Roaming\.minecraft\"
+	WinRAR.exe x -ibck "%CD%"\config.rar . "c:\Users\"%username%"\AppData\Roaming\.minecraft\"
 	
 	@rem minecraft forge server will detect if files were not unpacked when started
 ) else (
@@ -62,7 +65,7 @@ if exist C:\\Users\%username%\AppData\Roaming\.minecraft (
 	exit
 )
 
-if exist C:\\Users\%username%\AppData\Roaming\.minecraft\versions\1.7.10-Forge10.13.4.1614-1.7.10 (
+if exist "c:\Users\"%username%"\AppData\Roaming\.minecraft\versions\1.7.10-Forge10.13.4.1614-1.7.10" (
 	echo --------------------------------------------------------------------------------
 	echo                        Forge has already been installed!
 ) else (
@@ -72,9 +75,9 @@ if exist C:\\Users\%username%\AppData\Roaming\.minecraft\versions\1.7.10-Forge10
 	forge-1.7.10-10.13.4.1614-1.7.10-installer-win.exe
 	pause
 	echo --------------------------------------------------------------------------------
-	if exist C:\\Users\%username%\AppData\Roaming\.minecraft\versions\1.7.10-Forge10.13.4.1614-1.7.10 (
+	if exist "c:\Users\%username%\AppData\Roaming\.minecraft\versions\1.7.10-Forge10.13.4.1614-1.7.10" (
 		echo                            Forge has been installed!
-		del /q forge-1.7.10-10.13.4.1614-1.7.10-installer-win.exe.log
+		del /q "forge-1.7.10-10.13.4.1614-1.7.10-installer-win.exe.log"
 	) else (
 		echo                            Forge can't be installed!
 		echo                         Contact Aotyrek For Assistance.
