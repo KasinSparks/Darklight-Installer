@@ -34,24 +34,24 @@ echo ---------------------------------------------------------------------------
 echo                     DarkLight Matrix Executable Initialized.
 echo --------------------------------------------------------------------------------
 
-if exist "c:\Users\%username%\AppData\Roaming\.minecraft" (
+if exist "%userprofile%\AppData\Roaming\.minecraft" (
 	echo What is real? 
 	echo How do you define 'real'? 
 	echo If you're talking about what you can feel...
 	echo what you can smell...
 	echo what you can taste and see...
 	echo then 'real' is simply electrical signals interpreted by your brain. -Morpheus
-	if exist "c:\Users\%username%\AppData\Roaming\.minecraft\config" (
-		rmdir /s /q "c:\Users\%username%\AppData\Roaming\.minecraft\config"
+	if exist "%userprofile%\AppData\Roaming\.minecraft\config" (
+		rmdir /s /q "%userprofile%\AppData\Roaming\.minecraft\config"
 	)
 	
-	if exist "c:\Users\%username%\AppData\Roaming\.minecraft\mods" (
-		rmdir /s /q "c:\Users\%username%\AppData\Roaming\.minecraft\mods"
+	if exist "%userprofile%\AppData\Roaming\.minecraft\mods" (
+		rmdir /s /q "%userprofile%\AppData\Roaming\.minecraft\mods"
 	)
 
-	WinRAR.exe x -ibck "%CD%"\minecraft.rar . "c:\Users\%username%\AppData\Roaming\.minecraft\"
-	WinRAR.exe x -ibck "%CD%"\mods.rar . "c:\Users\%username%\AppData\Roaming\.minecraft\"
-	WinRAR.exe x -ibck "%CD%"\config.rar . "c:\Users\%username%\AppData\Roaming\.minecraft\"
+	WinRAR.exe x -ibck "%CD%"\minecraft.rar . "%userprofile%\AppData\Roaming\.minecraft\"
+	WinRAR.exe x -ibck "%CD%"\mods.rar . "%userprofile%\AppData\Roaming\.minecraft\"
+	WinRAR.exe x -ibck "%CD%"\config.rar . "%userprofile%\AppData\Roaming\.minecraft\"
 	
 	@rem minecraft forge server will detect if files were not unpacked when started
 ) else (
@@ -62,19 +62,19 @@ if exist "c:\Users\%username%\AppData\Roaming\.minecraft" (
 	exit
 )
 
-if exist "c:\Users\%username%\AppData\Roaming\.minecraft\versions\1.7.10-Forge10.13.4.1614-1.7.10" (
+if exist "%userprofile%\AppData\Roaming\.minecraft\versions\1.7.10-Forge10.13.4.1614-1.7.10" (
 	echo --------------------------------------------------------------------------------
 	echo                        Forge has already been installed!
 ) else (
 	echo --------------------------------------------------------------------------------
 	echo                                We got trouble...
 	echo          Please ensure that the forge install directory is as follows: 
-	echo                  "c:\Users\%username%\AppData\Roaming\.minecraft"
+	echo                  "%userprofile%\AppData\Roaming\.minecraft"
 	echo --------------------------------------------------------------------------------
 	forge-1.7.10-10.13.4.1614-1.7.10-installer-win.exe
 	pause
 	echo --------------------------------------------------------------------------------
-	if exist "c:\Users\%username%\AppData\Roaming\.minecraft\versions\1.7.10-Forge10.13.4.1614-1.7.10" (
+	if exist "%userprofile%\AppData\Roaming\.minecraft\versions\1.7.10-Forge10.13.4.1614-1.7.10" (
 		echo                            Forge has been installed!
 		del /q "forge-1.7.10-10.13.4.1614-1.7.10-installer-win.exe.log"
 	) else (
